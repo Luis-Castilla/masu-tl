@@ -10,7 +10,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-1. Clone this repository: `git clone [REPOSITORY_URL](https://github.com/Luis-Castilla/masu-tl.git)`
+1. Clone this repository: `git clone https://github.com/Luis-Castilla/masu-tl.git`
 2. Navigate to the project directory: `cd masu-tl`
 3. Install the dependencies: `npm install`
 
