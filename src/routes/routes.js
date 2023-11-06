@@ -3,12 +3,19 @@ const router = express.Router();
 const productController = require('../controllers/products-controller')
 
 /**
- * Module providing configuration for the Dummy Data API URL.
+ * Module Routes.
  * @module Routes
  */
 
+/**
+ * Route to retrieve all products.
+ * @name GET /api/v1/products
+ * @function
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ */
 router.get('/products', (req, res) => {
-  res.status(200).json('Ok message products');
+  productController.getProducts(req, res);
 });
 
 /**
