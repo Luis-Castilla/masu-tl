@@ -1,26 +1,15 @@
 {
     "root": true,
-    "env": {
-     "es6": true,
-     "node": true,
-     "browser": true
-    },
-    "plugins": [
-      "security"
-    ],
-    "extends": [ "airbnb", "plugin:import/warnings", "plugin:security/recommended" ],
     "parserOptions": {
-     "ecmaVersion": 8,
-     "sourceType": "module",
-     "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
-     }
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "extends": ["eslint:recommended", "prettier"],
+    "env": {
+        "es2021": true,
+        "node": true
     },
     "rules": {
-       "class-methods-use-this": "off",
-       "arrow-body-style":"off",
-       "comma-dangle": "off"
-     }
-
-   }
+        "no-console": "error"
+    }
+}

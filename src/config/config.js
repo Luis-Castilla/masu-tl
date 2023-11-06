@@ -8,9 +8,9 @@
  * @property {string} url - The URL of the Dummy Data API.
  */
 const dummyData = {
-  url: process.env.DUMMY_DATA_URL || 'https://dummyjson.com/products'
-};
+    url: process.env.DUMMY_DATA_URL || 'https://dummyjson.com/products',
+}
 
 module.exports = {
-  dummyData
-};
+    dummyData,
+}

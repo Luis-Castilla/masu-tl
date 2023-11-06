@@ -1,5 +1,8 @@
-const productService = require('../services/products-service');
-const { setResponseWithError, setResponseWithOk } = require('../utils/common-response');
+const productService = require('../services/products-service')
+const {
+    setResponseWithError,
+    setResponseWithOk,
+} = require('../utils/common-response')
 
 /**
  * Module Products Controller.
@@ -17,14 +20,14 @@ const { setResponseWithError, setResponseWithOk } = require('../utils/common-res
  * @throws {Error} If the product is not found or an error occurs.
  */
 const getProductById = async (req, res) => {
-  try {
-    const productId = req.params.id;
-    const product = await productService.getProductById(productId);
-    setResponseWithOk(res, 200, { 'product': product });
-  } catch (error) {
-    setResponseWithError(res, error.status, error.message);
-  }
-};
+    try {
+        const productId = req.params.id
+        const product = await productService.getProductById(productId)
+        setResponseWithOk(res, 200, { product: product })
+    } catch (error) {
+        setResponseWithError(res, error.status, error.message)
+    }
+}
 
 /**
  * Retrieves and handles products based on request parameters.
@@ -37,24 +40,24 @@ const getProductById = async (req, res) => {
  * @throws {Error} If an error occurs.
  */
 const getProducts = async (req, res) => {
-  const { limit, skip, select, q: search } = req.query;
+    const { limit, skip, select, q: search } = req.query
 
-  const options = {
-    limit: limit || undefined,
-    skip: skip || undefined,
-    select: select || undefined,
-    search: search || undefined,
-  };
+    const options = {
+        limit: limit || undefined,
+        skip: skip || undefined,
+        select: select || undefined,
+        search: search || undefined,
+    }
 
-  try {
-    const products = await productService.getProducts(options);
-    setResponseWithOk(res, 200, products);
-  } catch (error) {
-    setResponseWithError(res, error.status, error.message);
-  }
-};
+    try {
+        const products = await productService.getProducts(options)
+        setResponseWithOk(res, 200, products)
+    } catch (error) {
+        setResponseWithError(res, error.status, error.message)
+    }
+}
 
 module.exports = {
-  getProductById,
-  getProducts
-};
+    getProductById,
+    getProducts,
+}

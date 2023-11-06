@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const productController = require('../controllers/products-controller')
 
 /**
@@ -15,8 +15,8 @@ const productController = require('../controllers/products-controller')
  * @param {Object} res - Express response object.
  */
 router.get('/products', (req, res) => {
-  productController.getProducts(req, res);
-});
+    productController.getProducts(req, res)
+})
 
 /**
  * Route to retrieve a product by its ID.
@@ -26,7 +26,7 @@ router.get('/products', (req, res) => {
  * @param {Object} res - Express response object.
  */
 router.get('/product/:id', (req, res) => {
-  productController.getProductById(req, res);
-});
+    productController.getProductById(req, res)
+})
 
-module.exports = router;
+module.exports = router
