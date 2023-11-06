@@ -34,7 +34,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Swagger
 
-This project includes Swagger for API documentation. You can access the documentation at [SWAGGER](http://localhost:3000/api-docs/v1/#/).
+This project includes Swagger for API documentation. You can access the documentation at [http://localhost:3000/api-docs/v1](http://localhost:3000/api-docs/v1/#/).
 
 ## License
 
