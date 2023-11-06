@@ -4,13 +4,13 @@
  * /api/v1/products:
  *   get:
  *     summary: Get a list of products with pagination and filtering
- *     description: Retrieve a list of products from the API with support for pagination and filtering.
+ *     description: Retrieve a list of products from the API with support for pagination, search and fields to select.
  *     tags:
  *       - Products
  *     parameters:
  *       - in: query
- *         name: page
- *         description: The page number for pagination (default is 1).
+ *         name: skip
+ *         description: The numbers of items to exclude from collection.
  *         schema:
  *           type: integer
  *       - in: query
@@ -19,10 +19,15 @@
  *         schema:
  *           type: integer
  *       - in: query
- *         name: offset
- *         description: The starting position for items to return per page (default is 10).
+ *         name: select
+ *         description: The fields selected to show.
  *         schema:
- *           type: integer
+ *           type: string
+ *       - in: query
+ *         name: q
+ *         description: The search string.
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: A successful response with a list of products.

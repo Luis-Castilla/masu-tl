@@ -2,7 +2,7 @@ const productService = require('../services/products-service');
 const { setResponseWithError, setResponseWithOk } = require('../utils/common-response');
 
 /**
- * Module providing configuration for the Dummy Data API URL.
+ * Module Products Controller.
  * @module ProductsController
  */
 
@@ -14,36 +14,47 @@ const { setResponseWithError, setResponseWithOk } = require('../utils/common-res
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.
  * @returns {Promise<Object>} The product data if found.
- * @throws {CustomError} If the product is not found or an error occurs.
+ * @throws {Error} If the product is not found or an error occurs.
  */
 const getProductById = async (req, res) => {
   try {
-    /**
-     * The ID of the product to retrieve.
-     * @type {string}
-     */
     const productId = req.params.id;
-
-    /**
-     * The product data retrieved from the service.
-     * @type {Object}
-     */
     const product = await productService.getProductById(productId);
-
-    /**
-     * Sends an HTTP response with the retrieved product data.
-     * @type {function}
-     */
     setResponseWithOk(res, 200, { 'product': product });
   } catch (error) {
-    /**
-     * Sends an HTTP response with an error message and status code.
-     * @type {function}
-     */
+    setResponseWithError(res, error.status, error.message);
+  }
+};
+
+/**
+ * Retrieves and handles products based on request parameters.
+ * Uses options for pagination, selection, and searching.
+ *
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ *
+ * @returns {Promise<{ products: Array<Product>, limit: number, skip: number, total: number }>} The products data if found.
+ * @throws {Error} If an error occurs.
+ */
+const getProducts = async (req, res) => {
+  const { limit, skip, select, q: search } = req.query;
+
+  const options = {
+    limit: limit || undefined,
+    skip: skip || undefined,
+    select: select || undefined,
+    search: search || undefined,
+  };
+
+  try {
+    const products = await productService.getProducts(options);
+    setResponseWithOk(res, 200, products);
+  } catch (error) {
     setResponseWithError(res, error.status, error.message);
   }
 };
 
 module.exports = {
-  getProductById
+  getProductById,
+  getProducts
 };

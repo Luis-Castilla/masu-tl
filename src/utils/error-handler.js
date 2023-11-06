@@ -12,17 +12,7 @@ class CustomError extends Error {
    */
   constructor(code, message) {
     super(message);
-
-    /**
-     * Name of the error class.
-     * @member {string}
-     */
     this.name = 'CustomError';
-
-    /**
-     * HTTP status code of the error.
-     * @member {number}
-     */
     this.status = code;
   }
 }
