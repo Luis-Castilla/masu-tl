@@ -7,7 +7,8 @@
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint": "eslint"
+    "eslint": "eslint",
+    "jsdoc": "jsdoc ./src -r"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/Luis-Castilla/masu-tl#readme",
   "dependencies": {
+    "axios": "^1.6.0",
     "dotenv": "^16.3.1",
     "eslint": "^8.53.0",
     "express": "^4.18.2",
@@ -27,6 +29,7 @@
     "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
+    "jsdoc": "~4.0.2",
     "nodemon": "^3.0.1"
   }
 }

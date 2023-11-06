@@ -1,18 +1,25 @@
 const express = require('express');
 const router = express.Router();
+const productController = require('../controllers/products-controller')
+
+/**
+ * Module providing configuration for the Dummy Data API URL.
+ * @module Routes
+ */
 
 router.get('/products', (req, res) => {
   res.status(200).json('Ok message products');
 });
 
+/**
+ * Route to retrieve a product by its ID.
+ * @name GET /api/v1/product/:id
+ * @function
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ */
 router.get('/product/:id', (req, res) => {
-  const productId = req.params.id;
-  const product = { id: 1, title: '...asda' };
-  if (!product) {
-    res.status(400).json({ error: 'Product not found' });
-  } else {
-    res.status(200).json(product);
-  }
+  productController.getProductById(req, res);
 });
 
 module.exports = router;
