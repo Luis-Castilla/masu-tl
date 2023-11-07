@@ -34,9 +34,18 @@
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Product'
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: integer
+ *                 skip:
+ *                   type: integer
+ *                 limit:
+ *                   type: integer
+ *                 products:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Product'
  *       500:
  *         description: Internal server error.
  *         content:
