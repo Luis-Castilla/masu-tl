@@ -36,6 +36,9 @@ Before you begin, ensure you have met the following requirements:
 
 This project includes Swagger for API documentation. You can access the documentation at [http://localhost:3000/api-docs/v1](http://localhost:3000/api-docs/v1/#/).
 
+## Presentation
+You can access the **PPT** for the repository [HERE](https://docs.google.com/presentation/d/1whB1LmxJswwMBnRcJp1pcjpMeEmfJXzEPmMB6UgBXI4/edit?usp=sharing)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
